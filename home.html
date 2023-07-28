@@ -1,0 +1,100 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home Page</title>
+  <style>
+    body {
+      background-color: lightblue;
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      width: 400px;
+      margin: 0 auto;
+      padding: 50px;
+      background-color: #f5f5f5;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin-top: 100px;
+    }
+    
+    h1 {
+      color: #007fff; /* Azure blue */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin-bottom: 20px;
+    }
+    
+    p {
+      color: #007fff; /* Azure blue */
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    
+    .button {
+      display: inline-block;
+      background-color: #f68a1e;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 50%;
+      cursor: pointer;
+      text-decoration: none;
+      margin: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: bold;
+      transition: background-color 0.3s ease-in-out;
+    }
+    
+    .button:hover {
+      background-color: #d46c10;
+    }
+    
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    
+    .logo {
+      width: 150px; /* Adjust the width as needed */
+      height: 150px; /* Adjust the height as needed */
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+    
+    .logo:hover {
+      transform: scale(1.1);
+    }
+  </style>
+  <script>
+    window.onload = function() {
+      document.getElementById('admin-image').addEventListener('click', function() {
+        window.location.href = "{% url 'admin' %}";
+      });
+      document.getElementById('staff-image').addEventListener('click', function() {
+        window.location.href = "{% url 'stafflogin' %}";
+      });
+    };
+  </script>
+</head>
+<body>
+  <div class="container"style="background-color: lightgray; padding: 15px; border-radius: 10px;">
+    
+    <img src="{% static 'assets/img/busogaLogo.jpeg' %}" alt="The Busoga Trust" class="logo" id="busoga-image">
+    <h3>Welcome!</h3>
+    <h3>Please select your role</h3>
+    <div class="logo-container">
+      <a href="{% url 'admin' %}" class="button"><h4 style="color:  skyblue;">Admin</h4>
+        <img src="{% static 'assets/img/hrm.jpg' %}" alt="Admin" class="logo" id="admin-image">
+      </a>
+      <a href="{% url 'stafflogin' %}" class="button"><h4 style="color: skyblue;">Staff</h4>
+        <img src="{% static 'assets/img/staff.jpg' %}" alt="Staff" class="logo" id="staff-image">
+      </a>
+    </div>
+  </div>
+</body>
+</html>
